@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MedicalDConferences</string>
+    <string name="conference_edit_title">Edit Conference</string>
+</resources>
