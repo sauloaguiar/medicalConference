@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MedicalDConferences</string>
     <string name="conference_edit_title">Edit Conference</string>
+    <string name="conference_name">Conference Name</string>
+    <string name="text_comes_here">text comes here</string>
+    <string name="location">Location</string>
+    <string name="date">Date</string>
+    <string name="date_here">date here</string>
+    <string name="update">Update</string>
 </resources>

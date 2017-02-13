@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="12dp">
 
     <TextView
         android:text="Conference Name"
@@ -10,7 +14,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
         android:id="@+id/name"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:layout_alignEnd="@+id/date" />

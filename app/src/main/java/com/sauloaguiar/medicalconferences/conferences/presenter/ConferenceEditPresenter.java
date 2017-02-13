@@ -8,7 +8,9 @@ import com.sauloaguiar.medicalconferences.conferences.view.ConferenceEditView;
  * Created by sauloaguiar on 2/11/17.
  */
 
-public class ConferenceEditPresenter implements IConferenceEditPresenter, ConferencesDataSource.GetConferenceCallback {
+public class ConferenceEditPresenter implements IConferenceEditPresenter,
+        ConferencesDataSource.GetConferenceCallback,
+        ConferencesDataSource.UpdateConferenceCallback {
 
     private ConferencesDataSource dataSource;
     private ConferenceEditView view;
@@ -27,7 +29,8 @@ public class ConferenceEditPresenter implements IConferenceEditPresenter, Confer
 
     @Override
     public void update(Conference conference) {
-
+        conference.setId(conferenceId);
+        dataSource.updateConference(conference, this);
     }
 
     @Override
@@ -45,5 +48,10 @@ public class ConferenceEditPresenter implements IConferenceEditPresenter, Confer
     @Override
     public void onDataNotAvailable() {
 
+    }
+
+    @Override
+    public void onConferenceUpdated(boolean success) {
+        view.onConferenceUpdated(success);
     }
 }

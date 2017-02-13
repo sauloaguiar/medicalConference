@@ -8,4 +8,5 @@ import com.sauloaguiar.medicalconferences.conferences.model.Conference;
 
 public interface ConferenceEditView {
     void displayConferenceData(Conference conference);
+    void onConferenceUpdated(boolean success);
 }

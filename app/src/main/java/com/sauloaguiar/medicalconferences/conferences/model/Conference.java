@@ -25,6 +25,8 @@ public class Conference extends RealmObject {
 
     private String date;
 
+    private boolean isCancelled;
+
     RealmList<Topic> topics;
 
     public Conference(){}
@@ -49,7 +51,7 @@ public class Conference extends RealmObject {
         return id;
     }
 
-    private void setId(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -67,5 +69,13 @@ public class Conference extends RealmObject {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        isCancelled = cancelled;
     }
 }

@@ -22,6 +22,7 @@ import java.util.List;
 public class ConferencesActivity extends AppCompatActivity implements ConferenceView, ConferencesAdapter.SelectionCallback {
 
     private static final String TAG = ConferencesActivity.class.getName();
+    public static final int EDIT_CONFERENCE = 1;
     private IConferencePresenter presenter;
     private Dialog progressDialog;
     private ConferencesAdapter adapter;
@@ -85,14 +86,30 @@ public class ConferencesActivity extends AppCompatActivity implements Conference
     public void redirectToTopics(Conference conference) {
         Intent intent = new Intent(getApplicationContext(), TopicsActivity.class);
         intent.putExtra("conference_id", conference.getId());
-        startActivity(intent);
+        startActivityForResult(intent, EDIT_CONFERENCE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case EDIT_CONFERENCE:
+                if(resultCode == RESULT_OK) {
+                    Log.d(ConferencesActivity.this.getLocalClassName(), "resultCode: " + resultCode);
+                    adapter.notifyDataSetChanged();
+                }
+                break;
+            default:
+                break;
+
+        }
     }
 
     @Override
     public void showEditConference(Conference conference) {
         Intent intent = new Intent(getApplicationContext(), ConferenceEditActivity.class);
         intent.putExtra("conference_id", conference.getId());
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 
     @Override
